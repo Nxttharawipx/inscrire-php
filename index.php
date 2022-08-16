@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title> ลงทะเบียนเลือกกิจกรรมเพิ่มเติม </title>
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link href="css/bootstrap.min.css" rel="stylesheet" >
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
@@ -21,33 +21,33 @@
 				  <div class="card-body">
 				    <!-- <div>เข้าระบบในนาม : <?php echo $_SESSION['firstname']; ?></div> -->
 				    <div class="">เลือกวิชาลงทะเบียนเลือกกิจกรรมเพิ่มเติม</div>
-				    <form class="form mt-1">
+				    <form class="form mt-1" >
 				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input">
+				    		<input type="radio" name="subject" class="form-check-input" value="01">
 				    		<label class="form-check-label">
 				    			คณิตศาสตร์
 				    		</label>
 				    	</div>
 				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input">
+				    		<input type="radio" name="subject" class="form-check-input" value="02">
 				    		<label class="form-check-label">
 				    			ภาษาไทย
 				    		</label>
 				    	</div>
 				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input">
+				    		<input type="radio" name="subject" class="form-check-input" value="03">
 				    		<label class="form-check-label">
 				    			ศิลปะ
 				    		</label>
 				    	</div>
 				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input">
+				    		<input type="radio" name="subject" class="form-check-input" value="04">
 				    		<label class="form-check-label">
 				    			ดนตรี
 				    		</label>
 				    	</div>
 				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input">
+				    		<input type="radio" name="subject" class="form-check-input" value="05">
 				    		<label class="form-check-label">
 				    			พละ
 				    		</label>
