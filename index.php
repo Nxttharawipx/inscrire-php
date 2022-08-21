@@ -1,68 +1,21 @@
+<?php
+	if (isset($_GET["logout"])) {
+    session_destroy($_SESSION['firstname']);
+    echo "<script>alert('ไว้เจอกันใหม่นะคะ'); window.location = 'login.php'</script>";
+  }
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title> ลงทะเบียนเลือกกิจกรรมเพิ่มเติม </title>
-	<link href="css/bootstrap.min.css" rel="stylesheet" >
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>Husarasin</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link rel="stylesheet" href="style.css">
 </head>
 <body>
-	<div class="container">
-		<div class="row">
-			<div class="col-md-2">
-				
-			</div>
-			<div class="col-md-8">
-				<div class="card mt-2">
-				  <div class="card-header text-center">
-				    ลงทะเบียนเลือกกิจกรรมเพิ่มเติม
-				  </div>
-				  <div class="card-body">
-				    <!-- <div>เข้าระบบในนาม : <?php echo $_SESSION['firstname']; ?></div> -->
-				    <div class="">เลือกวิชาลงทะเบียนเลือกกิจกรรมเพิ่มเติม</div>
-				    <form class="form mt-1" >
-				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input" value="01">
-				    		<label class="form-check-label">
-				    			คณิตศาสตร์
-				    		</label>
-				    	</div>
-				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input" value="02">
-				    		<label class="form-check-label">
-				    			ภาษาไทย
-				    		</label>
-				    	</div>
-				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input" value="03">
-				    		<label class="form-check-label">
-				    			ศิลปะ
-				    		</label>
-				    	</div>
-				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input" value="04">
-				    		<label class="form-check-label">
-				    			ดนตรี
-				    		</label>
-				    	</div>
-				    	<div class="form-check mt-2">
-				    		<input type="radio" name="subject" class="form-check-input" value="05">
-				    		<label class="form-check-label">
-				    			พละ
-				    		</label>
-				    	</div>
-				    	<button type="submit" name="submit" class="btn btn-success w-100 mt-2"> ยืนยัน </button>
-				    </form>
-				  </div>
-				</div>
-			</div>
-			<div class="col-md-2">
-				
-			</div>
-		</div>
-		
-	</div>
-	<script type="text/javascript" src="js/bootstarp.bundle.js"></script>
+	<?php include 'php/navbar.php'; ?>
+	<script src="js/bootstrap.min.js"></script>
 </body>
 </html>
