@@ -2,10 +2,10 @@
 -- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: Aug 16, 2022 at 12:02 PM
--- Server version: 10.4.24-MariaDB
--- PHP Version: 8.1.6
+-- Host: localhost
+-- Generation Time: Aug 22, 2022 at 04:09 PM
+-- Server version: 10.4.21-MariaDB
+-- PHP Version: 7.4.29
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -42,7 +42,7 @@ CREATE TABLE `student` (
 --
 
 INSERT INTO `student` (`id`, `student_id`, `firstname`, `lastname`, `password`) VALUES
-(1, 0, 'charlotte', 'faymee', '1234');
+(1, 10340, 'พิมพิลาไลย', 'ตาคำ', 'Phaphaeng');
 
 -- --------------------------------------------------------
 
