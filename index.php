@@ -5,7 +5,11 @@ include 'php/server.php';
 if (isset($_GET["logout"])) {
     session_destroy();
     echo "<script>alert('ไว้เจอกันใหม่นะคะ'); window.location = 'login.php'</script>";
-  }
+}
+
+if (!isset($_SESSION['firstname'])) {
+    echo "<script>alert('กรุณาเข้าสู่ระบบด้วยนะคะ'); window.location = 'login.php'</script>";
+}
 
 ?>
 

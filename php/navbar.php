@@ -8,7 +8,7 @@
                 </ul>
                 <?php if(isset($_SESSION['firstname'])) { ?>
                     <div class="navbar-text me-4" style="color: #514880;">
-                        ผู้ใช้ : <?php echo $_SESSION['firstname']; ?>    <?php echo $_SESSION['lastname']; ?>
+                        ผู้ใช้ : <?php echo $_SESSION['firstname']; ?> <?php echo $_SESSION['lastname']; ?>
                     </div>
                     <a class="btn btn-danger" type="button" href="index.php?logout='0'">ออกจากระบบ</a>
                 <?php } ?>

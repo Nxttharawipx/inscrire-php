@@ -7,6 +7,16 @@ if (isset($_GET["logout"])) {
     echo "<script>alert('ไว้เจอกันใหม่นะคะ'); window.location = 'login.php'</script>";
   }
 
+  //all
+  $queryall = "SELECT * FROM subject";
+  $resultall = mysqli_query($con, $queryall);
+
+//check reg
+  $student_id = $_SESSION['student_id'];
+  
+  $register = "SELECT * FROM subject_register WHERE student_id = $student_id";
+  $resultreg = mysqli_query($con, $register);
+  
 ?>
 
 <!DOCTYPE html>
@@ -41,22 +51,33 @@ if (isset($_GET["logout"])) {
 				  <div class="card-header text-center">
 				    ลงทะเบียนเลือกวิชาเพิ่มเติมเพิ่มเติม
 				  </div>
+				  <?php if (mysqli_num_rows($resultreg)) { 
+				  	$student = mysqli_fetch_array($resultreg); 
+				  	$namesub = mysqli_fetch_array($resultall);
+				  ?>
 				  <div class="card-body">
+				  		<div> คุณ <?php echo $_SESSION['firstname'] ?> <?php echo $_SESSION['lastname'] ?> ได้ทำการเลือกวิชาเพิ่มเติมของวิชา <?php echo $namesub['subject_name'] ?> ไปแล้ว</div>
+				  </div>
+				  <?php } ?>
+				<?php if (!mysqli_num_rows($resultreg)) { ?>
+					<div class="card-body">
 				    <div class="">เลือกวิชาลงทะเบียนเลือกวิชาเพิ่มเติม</div>
 				    <form class="form mt-1" action="php/subject_db.php" method="POST">
-				    	<input type="hidden" name="" value="<?= $_SESSION['student_id']; ?>">
-
-				    	<select class="form-select" aria-label="Default select example">
-				    		<option selected>เลือกวิชา</option>
-							<option value="1" name="">ระบําพัดจีน</option>
-							<option value="2" name="">นาฏศิลป์ไทย</option>
-							<option value="3" name="">นาฏศิลป์ในอาเซียน</option>
-							<option value="4" name="">ดนตรีสากล</option>
-							<option value="5" name="">ดนตรีไทย</option>
-							<option value="6" name="">ศิลปะการออกแบบ</option>
-						</select>
+				    	<select class="form-select" aria-label="Default select example" name="sub">
+  							<option selected>Open this select menu</option>
+							    <?php
+									while ($row = $resultall->fetch_assoc()) {
+								?>
+								<option value="<?php echo $row['subject_code'];?>"><?php echo $row['subject_name']?> </option>
+								<?php } ?>
+							</select>
 				    	<button type="submit" name="submit" class="btn btn-success w-100 mt-2"> ยืนยัน </button>
 				    </form>
+				    </div>
+				<?php } ?>
+
+
+
 				  </div>
 				</div>
 			</div>

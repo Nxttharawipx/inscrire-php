@@ -5,6 +5,7 @@
     $password = $_POST['password'];
 
     $querylog = "SELECT * FROM student WHERE student_id = '$student_id' AND password = '$password' ";
+    
     $resultlog = mysqli_query($con, $querylog);
 
     while ($row = $resultlog->fetch_assoc()) {
