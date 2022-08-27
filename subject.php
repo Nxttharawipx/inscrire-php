@@ -16,6 +16,19 @@ if (isset($_GET["logout"])) {
   
   $register = "SELECT * FROM subject_register WHERE student_id = $student_id";
   $resultreg = mysqli_query($con, $register);
+
+  while ($row = $resultreg->fetch_assoc()) {
+  	$_SESSION['subject_code'] = $row['subject_code'];
+  }
+
+  //subject code -> name
+  $subject_code = $_SESSION['subject_code'];
+  $queryname = "SELECT * FROM subject WHERE subject_code = $subject_code";
+  $resultname = mysqli_query($con, $queryname);
+
+  if (mysqli_num_rows($resultname)) {
+  	$name = mysqli_fetch_array($resultname);
+  }
   
 ?>
 
@@ -51,12 +64,11 @@ if (isset($_GET["logout"])) {
 				  <div class="card-header text-center">
 				    ลงทะเบียนเลือกวิชาเพิ่มเติมเพิ่มเติม
 				  </div>
-				  <?php if (mysqli_num_rows($resultreg)) { 
-				  	$student = mysqli_fetch_array($resultreg); 
-				  	$namesub = mysqli_fetch_array($resultall);
-				  ?>
+				  <?php if (mysqli_num_rows($resultreg)) { ?>
 				  <div class="card-body">
-				  		<div> คุณ <?php echo $_SESSION['firstname'] ?> <?php echo $_SESSION['lastname'] ?> ได้ทำการเลือกวิชาเพิ่มเติมของวิชา <?php echo $namesub['subject_name'] ?> ไปแล้ว</div>
+				  		<div> คุณ <?php echo $_SESSION['firstname'] ?> <?php echo $_SESSION['lastname'] ?> ได้ทำการเลือกวิชาเพิ่มเติมของวิชา
+				  			<?php echo $name['subject_name'] ?>
+				  		ไปแล้ว</div>
 				  </div>
 				  <?php } ?>
 				<?php if (!mysqli_num_rows($resultreg)) { ?>
@@ -64,7 +76,7 @@ if (isset($_GET["logout"])) {
 				    <div class="">เลือกวิชาลงทะเบียนเลือกวิชาเพิ่มเติม</div>
 				    <form class="form mt-1" action="php/subject_db.php" method="POST">
 				    	<select class="form-select" aria-label="Default select example" name="sub">
-  							<option selected>Open this select menu</option>
+  							<option selected>เลือกวิชาเพิ่มเติม</option>
 							    <?php
 									while ($row = $resultall->fetch_assoc()) {
 								?>

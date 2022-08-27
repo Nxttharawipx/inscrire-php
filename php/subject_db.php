@@ -8,7 +8,7 @@
         $resultadd = mysqli_query($con, $queryadd) or die("try");
         
         if ($resultadd) {
-            echo "<script>alert('เพิ่มเมนูสำเร็จ!!'); window.location = '../menu.php'</script>";
+            echo "<script>alert('เลือกวิชาเพิ่มเติมสำเร็จแล้ว!!'); window.location = '../subject.php'</script>";
         }
 
 ?>
